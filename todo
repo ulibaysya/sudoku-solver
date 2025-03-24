@@ -1,0 +1,8 @@
+check if I can use recursion instead for in functions
+make separate function for errors
+    make all functions void, but that one for errors stays int
+scope grid[][] for main()
+    add int** array[SIZE][SIZE] requirment in all functions(instead error function)
+add sudoku-solver.h
+    move all defenitions there
+add makefile(do I actually need it?)
