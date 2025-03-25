@@ -3,20 +3,19 @@
 
 #define SIZE 9
 
-int main();
-int input();
-int validation();
-int solving();
-
-int grid[SIZE][SIZE];
+int input(int (*grid)[SIZE]);
+int validation(int (*grid)[SIZE]);
+int solving(int (*grid)[SIZE]);
 
 int main()
 {
+    int grid[SIZE][SIZE];
+
     printf("Sudoku solver...\n");
 
-    if (input() || validation() || solving())
+    if (input(grid) || validation(grid) || solving(grid))
     {
-        printf("Error");
+        printf("Error\n");
         return 1;
     }
 
@@ -24,10 +23,10 @@ int main()
     return 0;
 }
 
-int input()
+int input(int (*grid)[SIZE])
 {
     int row, column;
-    char* temp = malloc(sizeof(char) * SIZE);
+    char* temp = malloc(sizeof(char) * (SIZE + 1));
 
     printf("Input beginning...\n");
 
@@ -38,7 +37,8 @@ int input()
 //45
         if (temp[9] != '\0')
         {
-            printf("More than 9 numbers has been detected\n");
+            printf("More than 9 digits has been detected. Please input exactly 9 digits\n");
+            printf("Input is bad\n");
             free(temp);
             return 1;
         }
@@ -48,13 +48,15 @@ int input()
             //sum += temp[column] - '0';
             if (temp[column] == '\0')
             {
-                printf("Less than 9 numbers has been detected\n");
+                printf("Less than 9 digits has been detected. Please enter exactly 9 digits\n");
+                printf("Input is bad\n");
                 free(temp);
                 return 1;
             }
             else if (temp[column] < '0' || temp[column] > '9')
             {
-                printf("Invalid symbol has been detected\n");
+                printf("Invalid symbol has been detected. Please enter only digits\n");
+                printf("Input is bad\n");
                 free(temp);
                 return 1;
             }
@@ -68,7 +70,7 @@ int input()
     return 0;
 }
 
-int validation()
+int validation(int (*grid)[SIZE])
 {
     printf("Validation beginning...\n");
 
@@ -76,7 +78,7 @@ int validation()
     return 0;
 }
 
-int solving()
+int solving(int (*grid)[SIZE])
 {
     printf ("Solving beginning...\n");
     

@@ -1,8 +1,8 @@
-check if I can use recursion instead for in functions
-make separate function for errors
-    make all functions void, but that one for errors stays int
-scope grid[][] for main()
-    add int** array[SIZE][SIZE] requirment in all functions(instead error function)
-add sudoku-solver.h
-    move all defenitions there
+# check if I can use recursion instead of "for" in functions - I can use recursion, but not for "for". I can call function several times when there are errors after input instead of program exit. Actually I'm not sure about do I want to do this in such project, so I am commenting this point
+#make separate function for errors - no need. Each error might be called once, so let them be inside those functions that already exist. I would do this if previous point was done
+#    make all functions void, but that one for errors stays int
+scope grid[][] for main() - done
+    add int** array[SIZE][SIZE] requirment in all functions(instead error function) - done(except error function. we don't have it) - done
+#add sudoku-solver.h - no need. imo project is small to this, even for educational purposes
+#    move all defenitions there
 add makefile(do I actually need it?)
