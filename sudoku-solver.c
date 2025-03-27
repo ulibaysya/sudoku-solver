@@ -72,7 +72,36 @@ int input(int (*grid)[SIZE])
 
 int validation(int (*grid)[SIZE])
 {
+    int i, j, k;
+
     printf("Validation beginning...\n");
+
+    for (i = 0; i < SIZE; i++)
+    {
+        for (j = 0; j < SIZE; j++)
+        {
+            for (k = j + 1; k < SIZE; k++)
+            {
+	            if ((grid[i][j] != 0 && grid[i][k] != 0) || (grid[j][i] != 0 && grid[k][i] != 0))
+	            {
+	                if (grid[i][j] == grid[i][k])
+	                {
+	                    printf("%d is repeated in row %d\n", grid[i][j], (i + 1));
+	                    printf("Validation is bad\n");
+	                    return 1;
+	                }
+
+	                if (grid[j][i] == grid[k][i])
+	                {
+	                    printf("%d is repeated in column %d\n", grid[j][i], (i + 1));
+	                    printf("Validation is bad\n");
+	                    return 1;
+                    }
+                }
+            }
+        }
+        
+    }
 
     printf("Validation is successful\n");
     return 0;
